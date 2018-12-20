@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block title %}AREA - Board{% endblock %}
-{% block header_text %}AREA - Board{% endblock %}
+{% block title %}ootd{% endblock %}
+{% block header_text %}ootd{% endblock %}
 
 
 {% block content %}
@@ -21,7 +21,7 @@
                     <button class="mdl-button mdl-js-button mdl-button--primary" type="submit">Save</button>
                     <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
 
-                    <a class="mdl-button mdl-js-button mdl-button--accent" href="{%url 'delete_board' boards.id %}">Delete</a>
+                    <a class="mdl-button mdl-js-button mdl-button--accent" href="{%url 'delete_board' boards.id %}"">Delete</a>
 
             </form>
 

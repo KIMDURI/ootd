@@ -1,65 +1,43 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock %}
-
+{% block title %}ootd: our today's clothes{% endblock %}
 {% block content %}
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Start Bootstrap</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <!-- Full Page Image Header with Vertically Centered Content -->
-<header class="masthead">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12 text-center">
-        <h3 class="m-0 display-4">OOTD</h3>
-      </div>
-    </div>
+  <div class="container" style="border-radius: 20px;align-items: center;display: flex;height: 100px;color: white;background: #00c6ff;  /* fallback for old browsers */background: -webkit-linear-gradient(to left, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */background: linear-gradient(to left, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */">
+    <div class="" style="flex: auto;">
+        <h4 class="mt-2"style="float: left;"> Hi,   {{user.username}} </h4>
+      <div class="text-center " style="float: right;"><i style=" font-size: 3rem;" class="center fas fa-cloud-sun"></i></div>
+      <div style="float: right;"><i style="font-size: 2rem;"class="ml-2 mr-2 fas fa-thermometer-three-quarters">  {{temperature}}</i>  </div>
+          </div>
   </div>
-</header>
+
 
 <!-- Page Content -->
-<section class="py-5">
+<section class=" pricing py-5">
   <div class="container">
-  {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a> |
-  <a href="{% url 'signup' %}">signup</a>
 
-  <h3> Todays {{ weather }} / {{ temperature }} ˚C</h3>
+    <!-- Plus Tier -->
+
+      <div class="card col-lg-4">
+      <h4 class="card-title">Today's recommend </h4>
+      {% if recommand %}
+        {% for i in recommand %}
+      <div class="card-body ">
+          <img class="" style="max-height= 100px"src="/{{i.thumb}}" alt="">
+      </div>
+        {%endfor%}</div>
+      {% else %} <p> There are no clothes to recommend. </p>
+      {% endif%}
+    </div>
+    </div>
+  </div>
 
 
-  {% endif %}
+    <div>
   </section>
 
-</div>
+
+
 
 {% endblock %}
 

@@ -11,6 +11,7 @@ from PIL import Image
 from random import choice
 import string
 
+
 def upload(request):
     if request.method == 'POST':
         form = ClosettForm(request.POST, request.FILES)
@@ -25,7 +26,6 @@ def upload(request):
     return render(request, 'closet/upload.html', {
         'form': form
     })
-
 
 def Thumb(request):
     last = Closet.objects.all().order_by('-id').first()
@@ -85,16 +85,17 @@ def Thumb(request):
    
     
 
+def Usercloset(request):
 
-def Usercloset(request,username):
-    
-     t = Thumb_closet.objects.filter(owner= request.user.get_username())
+     t = Thumb_closet.objects.filter(owner= request.user.username)
      # c = Closet.objects.get(id=1)
      
      # print(c.origin_img)
      print(t)
+
+
      return render(request, 'closet/myroom.html', {
             't':t,
-            'user':request.user.get_username(),
+            'user':request.user.username,
             # 'closet':c,
         })

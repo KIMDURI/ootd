@@ -7,10 +7,11 @@ from django.conf import settings
 class Post(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
+    content = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
-    like_user_set = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True,
-                                           related_name='like_user_set', through='Like')
+
+    photo = models.ImageField(blank=True, upload_to="post/%Y/%m/%d")
 
     @property
     def like_count(self):

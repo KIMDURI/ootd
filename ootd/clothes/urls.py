@@ -11,7 +11,7 @@ from . import views
 urlpatterns = [
     path('', views.upload, name='upload'),
     path('mypage/', views.Thumb, name='mypage'),
-    path('mypage/<str:username>/', views.Usercloset, name='usercloset'),
+    path('mypage/users', views.Usercloset, name='usercloset'),
 ]
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

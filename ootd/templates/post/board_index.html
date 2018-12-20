@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}AREA - Board{% endblock %}
-{% block header_text %}AREA - Board{% endblock %}
+{% block title %}ootd: board{% endblock %}
+{% block header_text %}ootd: board{% endblock %}
 
 {% block content %}
   {% load staticfiles %}
-        <main class="mdl-layout__content">
-            <div class="mdl-grid portfolio-max-width">
-             <div class="mdl-card mdl-cell mdl-cell--12-col ">
-              <div class="mdl-card__supporting-text">
+        <main class="masthead  mt-4">
+            <div class="container card-body ">
                 <h4>Board</h4>
                   <a href="{%url 'create_board'%}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Write</a>
 
-                  <table style="margin: 5% 0; "class="mdl-data-table mdl-js-data-table mdl-cell--12-col">
+                  <table style="margin: 5% 0; "class="table">
                       <thead>
                         <tr>
                           <th  class="mdl-data-table__cell--non-numeric">ID</th>
                           <th>Title</th>
-                          <th>Author</th>
+                          <th>writer</th>
                           <th>Date</th>
                           <th>/</th>
                         </tr>

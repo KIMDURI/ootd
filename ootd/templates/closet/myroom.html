@@ -1,20 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>myroom</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}ootd: our today's clothes{% endblock %}
+{% block content %}
 
-<h2> my room </h2>
-<!--<img src="{{closet.origin_img.url}}">-->
+<div class="container">
+  <a href="{%url 'upload' %}"> Adding clothes </a>
+<h4 class="my-4">{{user}}'s closet</h4>
 
-{% for i in t%}
-/{{ i.
-\thumb }} <img src="/{{i.thumb}}">
-<p></p>
-{% endfor %}
-<p>{{closet.origin_img.url}}</p>
-<p>{{t.thumb.url}}</p>
-</body>
-</html>
+  <div class="row">
+    {% for i in t%}
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <!--<img style="text-align: center; width: 100px; max-height: 200px;" class="card-img-top" src="/{{i.thumb}}" alt="">-->
+          <img class="img-fluid d-block mx-auto" src="/{{i.thumb}}" alt="">
+
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="#">{{i.type}}</a>
+          </h4>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>{% endfor %}
+  </div>
+
+{% endblock %}
+
+      <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+

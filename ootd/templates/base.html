@@ -2,10 +2,39 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  <title>{% block title %}ootd: our today's clothes{% endblock %}</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 <body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-black bg-black">
+  <div class="container" style="color: #424242;">
+    <a class="mycolor navbar-brand" href="{%url 'home'%}" style="color: #424242;"><b>ootd;</b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon">ootd;</span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active" style="color: #424242;">
+          <a class="nav-link" href="{%url 'home'%}" style="color: #424242;"><i class="fas fa-home"></i>
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'usercloset' %}" style="color: #424242;"><i class="fas fa-user-alt"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'list_board'%}" style="color: #424242;"><i class="fas fa-pencil-alt"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" style="color: #424242;"><i class="fas fa-power-off"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   <main>
     {% block content %}
     {% endblock %}

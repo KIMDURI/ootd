@@ -1,17 +1,23 @@
 {% extends "base.html" %}
-{% block title %}AREA - Board{% endblock %}
-{% block header_text %}AREA - Board{% endblock %}
+{% block title %}ootd: board{% endblock %}
+{% block header_text %}ootd: board{% endblock %}
 
 
 {% block content %}
   {% load staticfiles %}
-       <main class="mdl-layout__content">
-            <div class="mdl-grid portfolio-max-width">
-             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+      <main class="masthead  mt-4">
+            <div class="container card-body ">
               <div class="mdl-card__supporting-text">
                   <h4>{{boards.title}}</h4>
-                  <textarea disabled style="resize:none;" class="mdl-textfield__input" name="content" cols="40" rows="10" >{{boards.content}}</textarea>
-                  <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+                  <p>{{boards.content}}</p>
+                   {% if boards.photo %}
+                    <img src="{{ boards.photo.url }}" alt="">
+                   {% endif %}
+              </div>
+            <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+            </div>
+
+          <h2>{{ post.title }}</h2>
 
 
       </main>
