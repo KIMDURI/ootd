@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}AREA - Board{% endblock %}
+{% block header_text %}AREA - Board{% endblock %}
+
+{% block content %}
+  {% load staticfiles %}
+        <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+              <div class="mdl-card__supporting-text">
+                <h4>Board</h4>
+                  <a href="{%url 'create_board'%}" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Write</a>
+
+                  <table style="margin: 5% 0; "class="mdl-data-table mdl-js-data-table mdl-cell--12-col">
+                      <thead>
+                        <tr>
+                          <th  class="mdl-data-table__cell--non-numeric">ID</th>
+                          <th>Title</th>
+                          <th>Author</th>
+                          <th>Date</th>
+                          <th>/</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for b in boards%}
+                       <tr style="cursor:pointer;" onClick="location.href='{% url 'show_board' b.id %}'" >
+                        <td class="mdl-data-table__cell--non-numeric"> {{ b.id }} </td>
+                        <td > {{ b.title }}</td>
+                        <td> {{ b.user_id }}</td>
+                        <td> {{ b.date }}</td>
+                        <td>{% if b.user_id == request.user %}
+                             <a style="text-decoration: none;"class="mdl-button--accent" href ="{%url 'update_board' b.id %}" >Update  </a>
+                            {% endif %}
+                        </td>
+                        </a></tr>
+                      {%endfor%}
+                      </tbody>
+                    </table>
+
+
+                    </table>
+
+            </div>
+        </main>
+
+{% endblock content %}

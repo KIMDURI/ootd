@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}AREA - Board{% endblock %}
+{% block header_text %}AREA - Board{% endblock %}
+
+
+{% block content %}
+  {% load staticfiles %}
+             <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+              <div class="mdl-card__supporting-text">
+                <h4>Create chatting room</h4>
+
+                    <form method="POST">{% csrf_token %}
+                    <h4>Title</h4>
+                        <div><input style="outline: none;" class="mdl-textfield__input" type="text" name="title" value="" maxlength="50" required="" id="id_title"></div>
+                    <h4>content</h4>
+                        <div><textarea style="outline: none;"  class="mdl-textfield__input" name="content" cols="40" rows="10" required="" id="id_content"></textarea></div>
+                    <p></p>
+                    <button class="mdl-button mdl-js-button mdl-button--primary" type="submit">Save</button>
+                    <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+
+
+            </form>
+
+
+            </div>
+      </main>
+{% endblock content %}
+

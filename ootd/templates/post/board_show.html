@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}AREA - Board{% endblock %}
+{% block header_text %}AREA - Board{% endblock %}
+
+
+{% block content %}
+  {% load staticfiles %}
+       <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+             <div class="mdl-card mdl-cell mdl-cell--12-col ">
+              <div class="mdl-card__supporting-text">
+                  <h4>{{boards.title}}</h4>
+                  <textarea disabled style="resize:none;" class="mdl-textfield__input" name="content" cols="40" rows="10" >{{boards.content}}</textarea>
+                  <button onclick="window.history.back();" class="mdl-button mdl-js-button mdl-button--primary" type="button">Cancel</button>
+
+
+      </main>
+
+{% endblock content %}
